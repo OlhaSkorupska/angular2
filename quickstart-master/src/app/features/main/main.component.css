@@ -1,0 +1,176 @@
+* {
+    box-sizing: border-box;    
+}
+.main-content {
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px 0 20px;
+    text-align: -webkit-center;
+    float: left;
+    border-right: 5px solid;
+    font: 16px Arial;    
+}
+.wrapper {
+    margin: 0;
+    padding: 0;
+}
+li {
+    display: inline-table;   
+    width: 200px;
+    height: 100px;
+    margin: 20px;
+    border: 1px solid black;    
+}
+
+img {
+    width: 150px;
+    height: auto;
+}
+.large-img {
+    width: 50%;
+    height: 50%;
+
+}
+button {
+    width: 25px;
+    height: 25px;
+    border: 0;
+    outline: none;    
+}
+.like {
+    background: url(app/features/main/images/like.png) 3px no-repeat;
+}
+
+.dislike {
+    background: url(app/features/main/images/dislike.png) 3px no-repeat;
+}
+
+.detail-content {
+    height: 100%;
+    margin-left: 50%;
+    padding: 20px; 
+    font: 24px Arial;
+    line-height: 1.5;        
+}
+
+.content {
+    border: 1px solid black;    
+}
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.sidebar {
+    width: 30%;
+    float: left;
+    padding: 20px;
+    border-bottom: 1px solid;
+}
+.description {
+    height: 100%;
+    margin-left: 30%;
+    border-left: 1px solid; 
+    padding: 20px;
+    position: relative;     
+}
+
+.sidebar-item {
+    width: 20%;
+    float: left;
+    border-bottom: 1px solid;
+}
+.description-item {
+    height: 100%;
+    margin-left: 20%;
+    border-left: 1px solid; 
+    padding: 5px;   
+    min-height: 305px;        
+}
+
+span {
+    font-weight: bold;
+}
+
+.close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 32px;
+    height: 32px;
+    outline: none;
+    background: url(app/features/main/images/close.png) no-repeat;
+}
+.side-item__likes {
+    font-size: 12px;
+    border-bottom: 1px solid black;
+}
+
+.stars {
+    border-top: 1px solid black;
+}
+
+#reviewStars-input input:checked ~ label, #reviewStars-input label, #reviewStars-input label:hover, #reviewStars-input label:hover ~ label {
+    background: url(app/features/main/images/star.png) no-repeat;
+  }
+  
+  #reviewStars-input {
+    overflow: hidden;
+    position: relative;
+    float: left;
+    margin-left: 30px;
+  }
+  
+  #reviewStars-input input {
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+    
+    width: 26px;
+    height: 29px;
+    
+    position: absolute;
+    top: 0;
+    z-index: 0;
+  }
+  
+  #reviewStars-input input:checked ~ label {
+    background-position: 0 -25px;
+    height: 26px;
+    width: 29px;
+  }
+  
+  #reviewStars-input label {
+    background-position: 0 0;
+    height: 26px;
+    width: 29px;
+    float: right;
+    cursor: pointer;   
+    position: relative;
+    z-index: 1;
+  }
+  
+  #reviewStars-input label:hover, #reviewStars-input label:hover ~ label {
+    background-position: 0 -25px;
+    height: 26px;
+    width: 29px;
+  }
+  
+  #reviewStars-input #star-0 {
+    left: 0px;
+  }
+  #reviewStars-input #star-1 {
+    left: 53px;
+  }
+  #reviewStars-input #star-2 {
+    left: 106px;
+  }
+  #reviewStars-input #star-3 {
+    left: 159px;
+  }
+  #reviewStars-input #star-4 {
+    left: 212px;
+  }
+  #reviewStars-input #star-5 {
+    left: 265px;
+  }
