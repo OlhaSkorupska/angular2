@@ -8,7 +8,7 @@ import { Http } from "@angular/http";
 })
 export class MainComponent implements OnInit{
     itemArray: any[];
-    item: object;    
+    item: any;    
     title: string = '';
     likes: number = 0;
     posterUrl: string = '';
@@ -19,7 +19,7 @@ export class MainComponent implements OnInit{
     toggoleShowHide: string ="hidden";  
     widthMainContent: string = "100%";
 
-    like(item: object) {
+    like(item: any) {
         item["likes"] = item["likes"] + 1;
         this.http.put("app/items", item).subscribe(
             result => {
@@ -31,7 +31,7 @@ export class MainComponent implements OnInit{
             );
     }
 
-    dislike(item: object) {
+    dislike(item: any) {
         item["likes"] = item["likes"] - 1;
         this.http.put("app/items", item).subscribe(
             result => {
