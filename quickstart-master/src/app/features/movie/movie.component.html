@@ -1,0 +1,14 @@
+<div class="content">
+    <div class="sidebar">
+        <div>{{ currentItem?.title }}</div>
+        <div><span>Likes: </span>{{ currentItem?.likes }}</div>            
+    </div>
+    <div class="description">
+        <button class="close" (click)="close()"></button>                
+        <img class="large-img" src="{{ currentItem?.posterUrl }}" alt="альтернативный текст">
+        <div><span>Director: </span>{{ currentItem?.director }}</div>
+        <div><span>Actors: </span>{{ currentItem?.actors }}</div>
+        <div><span>Genres: </span>{{ currentItem?.genres }}</div>
+        <div><span>Description: </span>{{ currentItem?.description }}</div>
+    </div>
+</div>

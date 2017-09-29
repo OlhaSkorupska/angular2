@@ -1,0 +1,31 @@
+.content {
+  border: 1px solid black;    
+}
+
+.sidebar {
+  width: 30%;
+  float: left;
+  padding: 20px;
+  border-bottom: 1px solid;
+}
+.description {
+  height: 100%;
+  margin-left: 30%;
+  border-left: 1px solid; 
+  padding: 20px;
+  position: relative;     
+}
+
+span {
+  font-weight: bold;
+}
+
+.close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 32px;
+  height: 32px;
+  outline: none;
+  background: url(app/features/main/images/close.png) no-repeat;
+}

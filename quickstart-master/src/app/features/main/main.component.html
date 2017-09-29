@@ -1,51 +1,10 @@
 <div class="clearfix">
     <div [style.width]="widthMainContent" class="main-content">
         <sort-block></sort-block>
-        <ul class="wrapper">
-            <li *ngFor="let item of itemArray">
-                <div>
-                    <div class="sidebar-item">
-                        <button class="like" (click)="like(item)"></button>
-                        <button class="dislike" (click)="dislike(item)"></button> 
-                        <div class="side-item__likes">likes</div>
-                        <div>{{ item.likes }}</div>
-                    </div>
-                    <div class="description-item" (click)="render(item)">
-                        <div>{{ item.title }}</div>
-                            <img src="{{ item.posterUrl }}" alt="some text">                            
-                    </div>
-                </div>
-                <div class="stars">
-                    <div id="reviewStars-input">
-                        <input id="star-4" type="radio" name="reviewStars"/>
-                        <label title="gorgeous" for="star-4"></label>
-                        <input id="star-3" type="radio" name="reviewStars"/>
-                        <label title="good" for="star-3"></label>
-                        <input id="star-2" type="radio" name="reviewStars"/>
-                        <label title="regular" for="star-2"></label>
-                        <input id="star-1" type="radio" name="reviewStars"/>
-                        <label title="poor" for="star-1"></label>
-                        <input id="star-0" type="radio" name="reviewStars"/>
-                        <label title="bad" for="star-0"></label>
-                    </div>                    
-                </div>                                
-            </li>
-        </ul>
+        <lists-movies></lists-movies>
     </div>
+
     <div [style.visibility]="toggoleShowHide" class="detail-content">
-        <div class="content">
-            <div class="sidebar">
-                <div>{{ title }}</div>
-                <div><span>Likes: </span>{{ likes }}</div>            
-            </div>
-            <div class="description">
-                <button class="close" (click)="close()"></button>                
-                <img class="large-img" src="{{ posterUrl }}" alt="альтернативный текст">
-                <div><span>Director: </span>{{ director }}</div>
-                <div><span>Actors: </span>{{ actors }}</div>
-                <div><span>Genres: </span>{{ genres }}</div>
-                <div><span>Description: </span>{{ description }}</div>
-            </div>
-        </div>
+        <movie></movie>
     </div>
 </div>
