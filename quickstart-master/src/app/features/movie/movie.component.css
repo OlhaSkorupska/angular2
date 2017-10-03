@@ -1,7 +1,11 @@
 .content {
-  border: 1px solid black;    
+  border: 1px solid black;  
+  width: 60%;
+  margin: auto;
 }
-
+* {
+  box-sizing: border-box;    
+}
 .sidebar {
   width: 30%;
   float: left;
@@ -27,5 +31,11 @@ span {
   width: 32px;
   height: 32px;
   outline: none;
+  border: none;  
   background: url(app/features/main/images/close.png) no-repeat;
 }
+.large-img {
+  width: 400px;
+  height: auto;
+}
+

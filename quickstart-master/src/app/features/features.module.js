@@ -6,14 +6,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require("@angular/core");
-var footer_module_1 = require("./footer/footer.module");
-var header_module_1 = require("./header/header.module");
-var main_module_1 = require("./main/main.module");
-var sort_block_module_1 = require("./sort-block/sort-block.module");
-var search_button_module_1 = require("./search-button/search-button.module");
-var sort_button_module_1 = require("./sort-button/sort-button.module");
-var lists_movies_module_1 = require("./lists-movies/lists-movies.module");
-var movie_module_1 = require("./movie/movie.module");
+var index_1 = require("./index");
 var FeaturesModule = (function () {
     function FeaturesModule() {
     }
@@ -22,24 +15,28 @@ var FeaturesModule = (function () {
 FeaturesModule = __decorate([
     core_1.NgModule({
         imports: [
-            footer_module_1.FooterModule,
-            header_module_1.HeaderModule,
-            main_module_1.MainModule,
-            sort_block_module_1.SortBlockModule,
-            search_button_module_1.SearchButtonModule,
-            sort_button_module_1.SortButtonModule,
-            lists_movies_module_1.ListsMoviesModule,
-            movie_module_1.MovieModule
+            index_1.FooterModule,
+            index_1.HeaderModule,
+            index_1.MainModule,
+            index_1.SortBlockModule,
+            index_1.SearchButtonModule,
+            index_1.SortButtonModule,
+            index_1.ListsMoviesModule,
+            index_1.MovieModule,
+            index_1.LikesModule,
+            index_1.StarsModule
         ],
         exports: [
-            footer_module_1.FooterModule,
-            header_module_1.HeaderModule,
-            main_module_1.MainModule,
-            sort_block_module_1.SortBlockModule,
-            search_button_module_1.SearchButtonModule,
-            sort_button_module_1.SortButtonModule,
-            lists_movies_module_1.ListsMoviesModule,
-            movie_module_1.MovieModule
+            index_1.FooterModule,
+            index_1.HeaderModule,
+            index_1.MainModule,
+            index_1.SortBlockModule,
+            index_1.SearchButtonModule,
+            index_1.SortButtonModule,
+            index_1.ListsMoviesModule,
+            index_1.MovieModule,
+            index_1.LikesModule,
+            index_1.StarsModule
         ]
     })
 ], FeaturesModule);

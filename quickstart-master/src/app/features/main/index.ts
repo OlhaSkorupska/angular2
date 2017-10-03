@@ -1,2 +1,2 @@
-export { MainComponent } from './main.component';
-export { MainModule } from './main.module';
+export * from './main.component';
+export * from './main.module';

@@ -9,50 +9,35 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var router_1 = require("@angular/router");
 var http_1 = require("@angular/http");
+var index_1 = require("../movie/index");
+var lists_movies_service_1 = require("../lists-movies/lists-movies.service");
 var ListsMoviesComponent = (function () {
-    function ListsMoviesComponent(http) {
+    function ListsMoviesComponent(http, router, service) {
+        var _this = this;
         this.http = http;
-        this.toggoleShowHide = "hidden";
-        this.widthMainContent = "100%";
-        this.name = 'ListsMoviesComponent';
+        this.router = router;
+        this.service = service;
+        this.service.getData().subscribe(function (result) { return _this.itemArray = result; }, function (error) { return console.log(error.statusText); });
     }
-    ListsMoviesComponent.prototype.like = function (item) {
-        var _this = this;
-        item["likes"] = item["likes"] + 1;
-        this.http.put("app/items", item).subscribe(function (result) {
-            var json = result.json();
-            if (json)
-                _this.itemArray.push(json.data);
-        }, function (error) { return console.log(error.statusText); });
-    };
-    ListsMoviesComponent.prototype.dislike = function (item) {
-        var _this = this;
-        item["likes"] = item["likes"] - 1;
-        this.http.put("app/items", item).subscribe(function (result) {
-            var json = result.json();
-            if (json)
-                _this.itemArray.push(json.data);
-        }, function (error) { return console.log(error.statusText); });
-    };
-    ListsMoviesComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.http.get("app/items").subscribe(function (result) { return _this.itemArray = result.json().data; }, function (error) { return console.log(error.statusText); });
-    };
+    ;
     ListsMoviesComponent.prototype.render = function (details) {
-        this.currentItem = details;
-        this.toggoleShowHide = "visible";
-        this.widthMainContent = "50%";
+        this.router.navigate(['/movie', details.id]);
     };
     return ListsMoviesComponent;
 }());
 ListsMoviesComponent = __decorate([
     core_1.Component({
-        selector: "lists-movies",
-        templateUrl: "app/features/lists-movies/lists-movies.component.html",
-        styleUrls: ["app/features/lists-movies/lists-movies.component.css"]
+        moduleId: module.id,
+        selector: 'lists-movies',
+        templateUrl: 'lists-movies.component.html',
+        styleUrls: ['lists-movies.component.css'],
+        providers: [index_1.MovieModule, lists_movies_service_1.DataService]
     }),
-    __metadata("design:paramtypes", [http_1.Http])
+    __metadata("design:paramtypes", [http_1.Http,
+        router_1.Router,
+        lists_movies_service_1.DataService])
 ], ListsMoviesComponent);
 exports.ListsMoviesComponent = ListsMoviesComponent;
 //# sourceMappingURL=lists-movies.component.js.map

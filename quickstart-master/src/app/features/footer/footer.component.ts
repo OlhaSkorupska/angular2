@@ -1,9 +1,10 @@
 import { Component } from "@angular/core";
 
 @Component({
+    moduleId: module.id,
     selector: "footer",
-    templateUrl: "app/features/footer/footer.component.html",
-    styleUrls: ["app/features/footer/footer.component.css"]
+    templateUrl: "footer.component.html",
+    styleUrls: ["footer.component.css"]
 })
 export class FooterComponent {
     name = 'EPAM'

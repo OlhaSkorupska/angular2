@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
-import { MovieComponent } from './movie.component';
+import { MovieComponent } from './index';
 import { BrowserModule } from '@angular/platform-browser';
+import { StarsModule } from '../stars/index';
 
 @NgModule({
-    imports: [ BrowserModule ],
+    imports: [ BrowserModule, StarsModule ],
     declarations: [ MovieComponent ],
     exports:    [ MovieComponent ]
 })

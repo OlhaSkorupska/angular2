@@ -1,17 +1,36 @@
 import { Component, OnInit } from "@angular/core";
 import { Http } from "@angular/http";
+import { Router, ActivatedRoute } from "@angular/router";
+import { DataService } from '../lists-movies/lists-movies.service';
 
 @Component({
+    moduleId: module.id,
     selector: "movie",
-    templateUrl: "app/features/movie/movie.component.html",
-    styleUrls: ["app/features/movie/movie.component.css"]
+    templateUrl: "movie.component.html",
+    styleUrls: ["movie.component.css"],
+    providers: [ DataService ]
 })
 
+
 export class MovieComponent {
-toggoleShowHide: string ='';  
-widthMainContent: string = '';
+    currentItem: any;
+    private sub: any;
+    private id: any;
+
+    constructor(private http: Http, 
+                private route: ActivatedRoute, 
+                private router: Router,
+                private service: DataService) { 
+        this.sub = this.route.params.subscribe(params => {
+            const id = +params['id'];
+            this.service.getDataById(id).subscribe(
+                result => this.currentItem = result,
+                error => console.log(error.statusText)                
+            );
+        });
+    } 
+
     close() {
-        this.toggoleShowHide = "hidden";
-        this.widthMainContent = "100%";
-    }  
+        this.router.navigate(['/main']);
+    }
 }

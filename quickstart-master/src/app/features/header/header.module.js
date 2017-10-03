@@ -6,7 +6,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require("@angular/core");
-var header_component_1 = require("./header.component");
+var index_1 = require("./index");
 var HeaderModule = (function () {
     function HeaderModule() {
     }
@@ -14,8 +14,8 @@ var HeaderModule = (function () {
 }());
 HeaderModule = __decorate([
     core_1.NgModule({
-        declarations: [header_component_1.HeaderComponent],
-        exports: [header_component_1.HeaderComponent]
+        declarations: [index_1.HeaderComponent],
+        exports: [index_1.HeaderComponent]
     })
 ], HeaderModule);
 exports.HeaderModule = HeaderModule;

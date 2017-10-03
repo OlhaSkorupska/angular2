@@ -1,6 +1,7 @@
 "use strict";
-var footer_component_1 = require("./footer.component");
-exports.FooterComponent = footer_component_1.FooterComponent;
-var footer_module_1 = require("./footer.module");
-exports.FooterModule = footer_module_1.FooterModule;
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+__export(require("./footer.component"));
+__export(require("./footer.module"));
 //# sourceMappingURL=index.js.map

@@ -6,7 +6,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require("@angular/core");
-var footer_component_1 = require("./footer.component");
+var index_1 = require("./index");
 var FooterModule = (function () {
     function FooterModule() {
     }
@@ -14,8 +14,8 @@ var FooterModule = (function () {
 }());
 FooterModule = __decorate([
     core_1.NgModule({
-        declarations: [footer_component_1.FooterComponent],
-        exports: [footer_component_1.FooterComponent]
+        declarations: [index_1.FooterComponent],
+        exports: [index_1.FooterComponent]
     })
 ], FooterModule);
 exports.FooterModule = FooterModule;

@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FooterComponent } from './footer.component';
+import { FooterComponent } from './index';
 
 @NgModule({
   declarations: [ FooterComponent ],

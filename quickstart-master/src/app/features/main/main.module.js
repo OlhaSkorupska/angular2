@@ -6,10 +6,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require("@angular/core");
-var main_component_1 = require("./main.component");
-var index_1 = require("../sort-block/index");
-var index_2 = require("../lists-movies/index");
-var index_3 = require("../movie/index");
+var index_1 = require("./index");
+var index_2 = require("../sort-block/index");
+var index_3 = require("../lists-movies/index");
+var index_4 = require("../movie/index");
 var MainModule = (function () {
     function MainModule() {
     }
@@ -17,9 +17,9 @@ var MainModule = (function () {
 }());
 MainModule = __decorate([
     core_1.NgModule({
-        imports: [index_1.SortBlockModule, index_2.ListsMoviesModule, index_3.MovieModule],
-        declarations: [main_component_1.MainComponent],
-        exports: [main_component_1.MainComponent]
+        imports: [index_2.SortBlockModule, index_3.ListsMoviesModule, index_4.MovieModule],
+        declarations: [index_1.MainComponent],
+        exports: [index_1.MainComponent]
     })
 ], MainModule);
 exports.MainModule = MainModule;

@@ -6,8 +6,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require("@angular/core");
-var movie_component_1 = require("./movie.component");
+var index_1 = require("./index");
 var platform_browser_1 = require("@angular/platform-browser");
+var index_2 = require("../stars/index");
 var MovieModule = (function () {
     function MovieModule() {
     }
@@ -15,9 +16,9 @@ var MovieModule = (function () {
 }());
 MovieModule = __decorate([
     core_1.NgModule({
-        imports: [platform_browser_1.BrowserModule],
-        declarations: [movie_component_1.MovieComponent],
-        exports: [movie_component_1.MovieComponent]
+        imports: [platform_browser_1.BrowserModule, index_2.StarsModule],
+        declarations: [index_1.MovieComponent],
+        exports: [index_1.MovieComponent]
     })
 ], MovieModule);
 exports.MovieModule = MovieModule;

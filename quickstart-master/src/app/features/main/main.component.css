@@ -1,26 +1,6 @@
-* {
-    box-sizing: border-box;    
-}
 .main-content {
-    width: 50%;
-    margin: 0 auto;
+    width: 100%;
     padding: 20px 0 20px;
     text-align: -webkit-center;
-    float: left;
-    border-right: 5px solid;
     font: 16px Arial;    
-}
-
-.detail-content {
-    height: 100%;
-    margin-left: 50%;
-    padding: 20px; 
-    font: 24px Arial;
-    line-height: 1.5;        
-}
-
-.clearfix::after {
-    content: "";
-    display: table;
-    clear: both;
 }

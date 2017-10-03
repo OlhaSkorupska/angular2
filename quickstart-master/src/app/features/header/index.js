@@ -1,6 +1,7 @@
 "use strict";
-var header_component_1 = require("./header.component");
-exports.HeaderComponent = header_component_1.HeaderComponent;
-var header_module_1 = require("./header.module");
-exports.HeaderModule = header_module_1.HeaderModule;
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+__export(require("./header.component"));
+__export(require("./header.module"));
 //# sourceMappingURL=index.js.map

@@ -1,56 +1,30 @@
-import { Component, OnInit } from "@angular/core";
-import { Http } from "@angular/http";
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Http } from '@angular/http';
+import { MovieModule } from '../movie/index';
+import { DataService } from '../lists-movies/lists-movies.service';
 
 @Component({
-    selector: "lists-movies",
-    templateUrl: "app/features/lists-movies/lists-movies.component.html",
-    styleUrls: ["app/features/lists-movies/lists-movies.component.css"]
+    moduleId: module.id,
+    selector: 'lists-movies',
+    templateUrl: 'lists-movies.component.html',
+    styleUrls: ['lists-movies.component.css'],
+    providers: [ MovieModule, DataService ]
 })
 
-export class ListsMoviesComponent implements OnInit {
+export class ListsMoviesComponent {
     itemArray: any[];
     item: any;  
+ 
+    constructor(private http: Http, 
+                private router: Router,
+                private service: DataService) { 
+            this.service.getData().subscribe(
+                result => this.itemArray = result,
+                error => console.log(error.statusText)                
+            )};
 
-    toggoleShowHide: string ="hidden";  
-    widthMainContent: string = "100%";
-    currentItem: any;    
-
-    name = 'ListsMoviesComponent';
-    like(item: any) {
-        item["likes"] = item["likes"] + 1;
-        this.http.put("app/items", item).subscribe(
-            result => {
-                let json = result.json();
-                if (json)
-                    this.itemArray.push(json.data);
-            },
-            error => console.log(error.statusText)
-            );
-    }
-
-    dislike(item: any) {
-        item["likes"] = item["likes"] - 1;
-        this.http.put("app/items", item).subscribe(
-            result => {
-                let json = result.json();
-                if (json)
-                    this.itemArray.push(json.data);
-            },
-            error => console.log(error.statusText)
-            );
-    }
-    constructor(private http: Http) { }
-    
-    ngOnInit() {
-        this.http.get("app/items").subscribe(
-            result => this.itemArray = result.json().data,
-            error => console.log(error.statusText)
-        );
-    }    
-
-    render(details: Object) {
-        this.currentItem = details;
-        this.toggoleShowHide = "visible";
-        this.widthMainContent = "50%";
+    render(details: any) {
+        this.router.navigate(['/movie', details.id]);
     }    
 }

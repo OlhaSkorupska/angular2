@@ -9,6 +9,10 @@ var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var http_1 = require("@angular/http");
 var features_module_1 = require("./features/features.module");
+var index_1 = require("./features/index");
+var main_component_1 = require("./features/main/main.component");
+var router_1 = require("@angular/router");
+//import { DataService } from "./features/lists-movies/index";
 var app_component_1 = require("./app.component");
 var angular_in_memory_web_api_1 = require("angular-in-memory-web-api");
 var inMemoryServer_1 = require("./sample01_inMemServer/inMemoryServer");
@@ -21,9 +25,15 @@ var AppModule = (function () {
 AppModule = __decorate([
     core_1.NgModule({
         imports: [platform_browser_1.BrowserModule, http_1.HttpModule,
-            angular_in_memory_web_api_1.InMemoryWebApiModule.forRoot(inMemoryServer_1.ItemData), sample_module_1.InMemoryServerModule, features_module_1.FeaturesModule],
+            angular_in_memory_web_api_1.InMemoryWebApiModule.forRoot(inMemoryServer_1.ItemData), sample_module_1.InMemoryServerModule, features_module_1.FeaturesModule,
+            router_1.RouterModule.forRoot([
+                { path: "movie/:id", component: index_1.MovieComponent },
+                { path: "main", component: main_component_1.MainComponent },
+                { path: "", redirectTo: "main", pathMatch: "full" }
+            ])
+        ],
         declarations: [app_component_1.AppComponent],
-        bootstrap: [app_component_1.AppComponent]
+        bootstrap: [app_component_1.AppComponent],
     })
 ], AppModule);
 exports.AppModule = AppModule;
