@@ -4,3 +4,40 @@
     text-align: -webkit-center;
     font: 16px Arial;    
 }
+* {
+    box-sizing: border-box;    
+}
+
+.sidebar-item {
+  width: 20%;
+  float: left;
+  border-bottom: 1px solid;
+}
+.wrapper {
+    margin: 0;
+    padding: 0;
+}
+li {
+    display: inline-table;   
+    width: 200px;
+    height: 100px;
+    margin: 20px;
+    border: 1px solid black;    
+}
+
+img {
+    width: 150px;
+    height: auto;
+}
+
+.description-item {
+    height: 100%;
+    margin-left: 20%;
+    border-left: 1px solid; 
+    padding: 5px;   
+    min-height: 305px;        
+}
+
+.stars {
+    border-top: 1px solid black;
+}

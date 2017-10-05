@@ -14,9 +14,10 @@ var SearchButtonComponent = (function () {
 }());
 SearchButtonComponent = __decorate([
     core_1.Component({
-        selector: "search-button",
-        templateUrl: "app/features/search-button/search-button.component.html",
-        styleUrls: ["app/features/search-button/search-button.component.css"]
+        moduleId: module.id,
+        selector: 'search-button',
+        templateUrl: 'search-button.component.html',
+        styleUrls: ['search-button.component.css']
     })
 ], SearchButtonComponent);
 exports.SearchButtonComponent = SearchButtonComponent;

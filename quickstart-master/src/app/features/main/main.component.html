@@ -1,4 +1,19 @@
 <div [style.width]="widthMainContent" class="main-content">
-    <sort-block></sort-block>
-    <lists-movies></lists-movies>
+    <sort-block (sort)="sortHandler($event)"></sort-block>
+    <ul class="wrapper">
+        <li *ngFor="let item of itemArray">
+            <div>
+                <div class="sidebar-item">
+                    <likes [item]="item"></likes>                
+                </div>            
+                <div class="description-item" (click)="render(item)">
+                    <div>{{ item.title }}</div>
+                        <img src="{{ item.posterUrl }}" alt="some text">                            
+                </div>
+            </div>
+            <div class="stars">
+                <stars [stars]="item.stars"></stars>                  
+            </div>                                
+        </li>
+    </ul>
 </div>

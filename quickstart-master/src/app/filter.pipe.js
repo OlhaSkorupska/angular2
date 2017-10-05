@@ -6,19 +6,24 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require("@angular/core");
-var HeaderComponent = (function () {
-    function HeaderComponent() {
-        this.name = 'Movies';
+var FactorialPipe = (function () {
+    function FactorialPipe() {
     }
-    return HeaderComponent;
+    FactorialPipe.prototype.transform = function (value, args) {
+        if (value <= 0)
+            return 0;
+        var result = 1;
+        for (var i = 1; i <= value; i++) {
+            result = result * i;
+        }
+        return result;
+    };
+    return FactorialPipe;
 }());
-HeaderComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: "header",
-        templateUrl: "header.component.html",
-        styleUrls: ["header.component.css"]
+FactorialPipe = __decorate([
+    core_1.Pipe({
+        name: 'factorial'
     })
-], HeaderComponent);
-exports.HeaderComponent = HeaderComponent;
-//# sourceMappingURL=header.component.js.map
+], FactorialPipe);
+exports.FactorialPipe = FactorialPipe;
+//# sourceMappingURL=filter.pipe.js.map

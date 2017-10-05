@@ -6,11 +6,10 @@ import { FooterModule,
             SortBlockModule, 
             SearchButtonModule, 
             SortButtonModule, 
-            ListsMoviesModule, 
             MovieModule,
             LikesModule,
             StarsModule } from './index';
-
+       
 @NgModule({
   imports: [ 
       FooterModule, 
@@ -19,7 +18,6 @@ import { FooterModule,
       SortBlockModule,
       SearchButtonModule,
       SortButtonModule,
-      ListsMoviesModule,
       MovieModule,
       LikesModule,
       StarsModule
@@ -31,7 +29,6 @@ import { FooterModule,
       SortBlockModule,
       SearchButtonModule,
       SortButtonModule,
-      ListsMoviesModule,
       MovieModule,
       LikesModule,
       StarsModule

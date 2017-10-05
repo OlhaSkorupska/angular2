@@ -1,6 +1,7 @@
 "use strict";
-var sort_button_component_1 = require("./sort-button.component");
-exports.SortButtonComponent = sort_button_component_1.SortButtonComponent;
-var sort_button_module_1 = require("./sort-button.module");
-exports.SortButtonModule = sort_button_module_1.SortButtonModule;
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+__export(require("./sort-button.component"));
+__export(require("./sort-button.module"));
 //# sourceMappingURL=index.js.map

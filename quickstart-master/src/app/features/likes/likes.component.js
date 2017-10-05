@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var lists_movies_service_1 = require("../lists-movies/lists-movies.service");
+var main_service_1 = require("../main/main.service");
 var router_1 = require("@angular/router");
 var http_1 = require("@angular/http");
 var LikesComponent = (function () {
@@ -37,11 +37,11 @@ LikesComponent = __decorate([
         selector: 'likes',
         templateUrl: 'likes.component.html',
         styleUrls: ['likes.component.css'],
-        providers: [lists_movies_service_1.DataService]
+        providers: [main_service_1.DataService]
     }),
     __metadata("design:paramtypes", [http_1.Http,
         router_1.Router,
-        lists_movies_service_1.DataService])
+        main_service_1.DataService])
 ], LikesComponent);
 exports.LikesComponent = LikesComponent;
 //# sourceMappingURL=likes.component.js.map

@@ -1,11 +1,19 @@
-import { Component } from "@angular/core";
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-    selector: "sort-button",
-    templateUrl: "app/features/sort-button/sort-button.component.html",
-    styleUrls: ["app/features/sort-button/sort-button.component.css"],
-    inputs: ["name"]
+    moduleId: module.id,
+    selector: 'sort-button',
+    templateUrl: 'sort-button.component.html',
+    styleUrls: ['sort-button.component.css']
 })
 export class SortButtonComponent {
+    @Input()
     name: string = 'sort';
+
+    @Output()
+    sort: EventEmitter<string> = new EventEmitter();
+
+    start() {
+        this.sort.emit(this.name);
+    }   
 }

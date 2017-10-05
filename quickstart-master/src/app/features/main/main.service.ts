@@ -23,4 +23,17 @@ export class DataService {
         return this.http.put("app/items", item)
         .map(response => response.json().data);         
     }
+
+    sortData(itemArray: any, value: string) {
+        itemArray.sort((a: any, b: any) => {
+            if (a[value] < b[value]) {
+                return -1;
+            } else if (a[value] > b[value]) {
+                return 1;
+            } else {
+                return 0;
+            }
+        });
+        return itemArray;
+    }     
 }

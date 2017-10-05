@@ -7,9 +7,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var core_1 = require("@angular/core");
 var index_1 = require("./index");
-var index_2 = require("../sort-block/index");
-var index_3 = require("../lists-movies/index");
-var index_4 = require("../movie/index");
+var platform_browser_1 = require("@angular/platform-browser");
+var index_2 = require("../likes/index");
+var index_3 = require("../stars/index");
+var index_4 = require("../sort-button/index");
+var index_5 = require("../sort-block/index");
+var index_6 = require("../movie/index");
 var MainModule = (function () {
     function MainModule() {
     }
@@ -17,7 +20,7 @@ var MainModule = (function () {
 }());
 MainModule = __decorate([
     core_1.NgModule({
-        imports: [index_2.SortBlockModule, index_3.ListsMoviesModule, index_4.MovieModule],
+        imports: [index_5.SortBlockModule, index_6.MovieModule, index_4.SortButtonModule, index_3.StarsModule, index_2.LikesModule, platform_browser_1.BrowserModule],
         declarations: [index_1.MainComponent],
         exports: [index_1.MainComponent]
     })

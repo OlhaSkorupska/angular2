@@ -12,7 +12,6 @@ var features_module_1 = require("./features/features.module");
 var index_1 = require("./features/index");
 var main_component_1 = require("./features/main/main.component");
 var router_1 = require("@angular/router");
-//import { DataService } from "./features/lists-movies/index";
 var app_component_1 = require("./app.component");
 var angular_in_memory_web_api_1 = require("angular-in-memory-web-api");
 var inMemoryServer_1 = require("./sample01_inMemServer/inMemoryServer");
@@ -33,7 +32,7 @@ AppModule = __decorate([
             ])
         ],
         declarations: [app_component_1.AppComponent],
-        bootstrap: [app_component_1.AppComponent],
+        bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);
 exports.AppModule = AppModule;

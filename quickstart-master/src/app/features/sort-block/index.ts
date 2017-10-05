@@ -1,2 +1,2 @@
-export { SortBlockComponent } from './sort-block.component';
-export { SortBlockModule } from './sort-block.module';
+export * from './sort-block.component';
+export * from './sort-block.module';

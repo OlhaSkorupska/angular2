@@ -1,5 +1,5 @@
 import { Component, Input } from "@angular/core";
-import { DataService } from '../lists-movies/lists-movies.service';
+import { DataService } from '../main/main.service';
 import { Router } from '@angular/router';
 import { Http } from '@angular/http';
 

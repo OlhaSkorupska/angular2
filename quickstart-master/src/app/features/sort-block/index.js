@@ -1,6 +1,7 @@
 "use strict";
-var sort_block_component_1 = require("./sort-block.component");
-exports.SortBlockComponent = sort_block_component_1.SortBlockComponent;
-var sort_block_module_1 = require("./sort-block.module");
-exports.SortBlockModule = sort_block_module_1.SortBlockModule;
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+__export(require("./sort-block.component"));
+__export(require("./sort-block.module"));
 //# sourceMappingURL=index.js.map

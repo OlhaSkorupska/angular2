@@ -4,7 +4,6 @@ export  *  from './search-button/index';
 export  *  from './main/index';
 export  *  from './header/index';
 export  *  from './footer/index';
-export  *  from './lists-movies/index';
 export  *  from './movie/index';
 export  *  from './likes/index';
 export  *  from './stars/index';

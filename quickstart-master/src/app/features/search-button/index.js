@@ -1,6 +1,7 @@
 "use strict";
-var search_button_component_1 = require("./search-button.component");
-exports.SearchButtonComponent = search_button_component_1.SearchButtonComponent;
-var search_button_module_1 = require("./search-button.module");
-exports.SearchButtonModule = search_button_module_1.SearchButtonModule;
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+__export(require("./search-button.component"));
+__export(require("./search-button.module"));
 //# sourceMappingURL=index.js.map

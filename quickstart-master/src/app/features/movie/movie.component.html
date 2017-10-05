@@ -2,7 +2,7 @@
     <div class="sidebar">
         <div>{{ currentItem?.title }}</div>
         <div><span>Likes: </span>{{ currentItem?.likes }}</div> 
-        <stars [stars]="currentItem.stars"></stars>
+        <stars [stars]="currentItem?.stars"></stars>
     </div>
     <div class="description">
         <button class="close" (click)="close()"></button>                

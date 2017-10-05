@@ -21,7 +21,6 @@ FeaturesModule = __decorate([
             index_1.SortBlockModule,
             index_1.SearchButtonModule,
             index_1.SortButtonModule,
-            index_1.ListsMoviesModule,
             index_1.MovieModule,
             index_1.LikesModule,
             index_1.StarsModule
@@ -33,7 +32,6 @@ FeaturesModule = __decorate([
             index_1.SortBlockModule,
             index_1.SearchButtonModule,
             index_1.SortButtonModule,
-            index_1.ListsMoviesModule,
             index_1.MovieModule,
             index_1.LikesModule,
             index_1.StarsModule

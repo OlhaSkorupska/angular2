@@ -5,7 +5,6 @@ import { FeaturesModule } from './features/features.module';
 import { MovieComponent } from './features/index';
 import { MainComponent } from './features/main/main.component';
 import { RouterModule } from "@angular/router";
-//import { DataService } from "./features/lists-movies/index";
 
 import { AppComponent }  from './app.component';
 
@@ -23,8 +22,7 @@ import { InMemoryServerModule } from "./sample01_inMemServer/sample.module";
     ]) 
   ],
   declarations: [ AppComponent ],
-  bootstrap:    [ AppComponent ],
-  //providers: [ DataService ] 
+  bootstrap:    [ AppComponent ]
 })
 
 export class AppModule { }

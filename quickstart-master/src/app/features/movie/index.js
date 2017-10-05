@@ -1,6 +1,7 @@
 "use strict";
-var movie_component_1 = require("./movie.component");
-exports.MovieComponent = movie_component_1.MovieComponent;
-var movie_module_1 = require("./movie.module");
-exports.MovieModule = movie_module_1.MovieModule;
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+__export(require("./movie.component"));
+__export(require("./movie.module"));
 //# sourceMappingURL=index.js.map

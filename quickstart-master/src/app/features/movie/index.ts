@@ -1,2 +1,2 @@
-export { MovieComponent } from './movie.component';
-export { MovieModule } from './movie.module';
+export * from './movie.component';
+export * from './movie.module';

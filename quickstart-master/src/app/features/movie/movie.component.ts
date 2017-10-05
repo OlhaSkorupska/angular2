@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Http } from "@angular/http";
 import { Router, ActivatedRoute } from "@angular/router";
-import { DataService } from '../lists-movies/lists-movies.service';
+import { DataService } from '../main/main.service';
 
 @Component({
     moduleId: module.id,

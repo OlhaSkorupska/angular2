@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var StarsComponent = (function () {
     function StarsComponent() {
+        this.stars = 2;
     }
     return StarsComponent;
 }());
