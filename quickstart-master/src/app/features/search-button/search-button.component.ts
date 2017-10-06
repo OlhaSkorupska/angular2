@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
     moduleId: module.id,
@@ -7,5 +7,12 @@ import { Component } from '@angular/core';
     styleUrls: ['search-button.component.css']
 })
 export class SearchButtonComponent {
-    name = 'by likes'
+    name = 'searchByname';
+
+    @Output()
+    search: EventEmitter<string> = new EventEmitter();
+
+    onKeyUp(data: string){
+        this.search.emit(data);
+    } 
 }

@@ -12,21 +12,13 @@ var core_1 = require("@angular/core");
 var SortButtonComponent = (function () {
     function SortButtonComponent() {
         this.name = 'sort';
-        this.sort = new core_1.EventEmitter();
     }
-    SortButtonComponent.prototype.start = function () {
-        this.sort.emit(this.name);
-    };
     return SortButtonComponent;
 }());
 __decorate([
     core_1.Input(),
     __metadata("design:type", String)
 ], SortButtonComponent.prototype, "name", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", core_1.EventEmitter)
-], SortButtonComponent.prototype, "sort", void 0);
 SortButtonComponent = __decorate([
     core_1.Component({
         moduleId: module.id,

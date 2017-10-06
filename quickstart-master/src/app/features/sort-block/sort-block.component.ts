@@ -12,10 +12,18 @@ export class SortBlockComponent {
     @Output()
     sort: EventEmitter<string> = new EventEmitter();
 
+    @Output()
+    search: EventEmitter<string> = new EventEmitter();
+
     sortByLikes() {
         this.sort.emit('likes');
-    }      
+    }     
+     
     sortByRaiting() {
         this.sort.emit('stars');
     }
+
+    onKeyUp(data: string){
+        this.search.emit(data);
+    }     
 }

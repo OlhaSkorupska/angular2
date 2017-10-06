@@ -8,12 +8,5 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 })
 export class SortButtonComponent {
     @Input()
-    name: string = 'sort';
-
-    @Output()
-    sort: EventEmitter<string> = new EventEmitter();
-
-    start() {
-        this.sort.emit(this.name);
-    }   
+    name: string = 'sort';  
 }

@@ -1,5 +1,5 @@
 <div [style.width]="widthMainContent" class="main-content">
-    <sort-block (sort)="sortHandler($event)"></sort-block>
+    <sort-block (sort)="sortHandler($event)" (search)="searchHandler($event)"></sort-block>
     <ul class="wrapper">
         <li *ngFor="let item of itemArray">
             <div>

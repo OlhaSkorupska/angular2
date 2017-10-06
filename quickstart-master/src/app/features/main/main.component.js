@@ -15,28 +15,37 @@ var index_1 = require("../movie/index");
 var main_service_1 = require("../main/main.service");
 var MainComponent = (function () {
     function MainComponent(http, router, service) {
-        var _this = this;
         this.http = http;
         this.router = router;
         this.service = service;
-        this.filter = '';
         this.pressDownButton = true;
         this.sort = new core_1.EventEmitter();
-        this.service.getData().subscribe(function (result) { return _this.itemArray = result; }, function (error) { return console.log(error.statusText); });
+        this.search = new core_1.EventEmitter();
     }
+    ;
+    MainComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.service.getData().subscribe(function (result) { return _this.itemArray = result; }, function (error) { return console.log(error.statusText); });
+    };
     ;
     MainComponent.prototype.render = function (details) {
         this.router.navigate(['/movie', details.id]);
     };
-    MainComponent.prototype.sortHandler = function (value) {
+    MainComponent.prototype.searchHandler = function (value) {
         var _this = this;
+        this.service.getData().subscribe(function (result) {
+            _this.itemArray = result.filter(function (item) {
+                return (item['title'].toLowerCase().indexOf(value.toLowerCase()) !== -1);
+            });
+        }, function (error) { return console.log(error.statusText); });
+    };
+    MainComponent.prototype.sortHandler = function (value) {
         if (this.pressDownButton) {
             this.service.sortData(this.itemArray, value);
         }
         else {
-            this.service.getData().subscribe(function (result) { return _this.itemArray = result; }, function (error) { return console.log(error.statusText); });
+            this.service.sortData(this.itemArray, 'id');
         }
-        ;
         this.pressDownButton = !this.pressDownButton;
     };
     ;
@@ -46,6 +55,10 @@ __decorate([
     core_1.Output(),
     __metadata("design:type", core_1.EventEmitter)
 ], MainComponent.prototype, "sort", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", core_1.EventEmitter)
+], MainComponent.prototype, "search", void 0);
 MainComponent = __decorate([
     core_1.Component({
         moduleId: module.id,

@@ -13,6 +13,7 @@ var SortBlockComponent = (function () {
     function SortBlockComponent() {
         this.name = 'Sort Movies';
         this.sort = new core_1.EventEmitter();
+        this.search = new core_1.EventEmitter();
     }
     SortBlockComponent.prototype.sortByLikes = function () {
         this.sort.emit('likes');
@@ -20,12 +21,19 @@ var SortBlockComponent = (function () {
     SortBlockComponent.prototype.sortByRaiting = function () {
         this.sort.emit('stars');
     };
+    SortBlockComponent.prototype.onKeyUp = function (data) {
+        this.search.emit(data);
+    };
     return SortBlockComponent;
 }());
 __decorate([
     core_1.Output(),
     __metadata("design:type", core_1.EventEmitter)
 ], SortBlockComponent.prototype, "sort", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", core_1.EventEmitter)
+], SortBlockComponent.prototype, "search", void 0);
 SortBlockComponent = __decorate([
     core_1.Component({
         moduleId: module.id,

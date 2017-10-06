@@ -12,19 +12,20 @@ import { DataService } from '../main/main.service';
     providers: [ MovieModule, DataService ] 
 })
 
-export class MainComponent {  
+export class MainComponent implements OnInit {  
     itemArray: any[];
     item: any;  
-    filter: string = '';
     pressDownButton: boolean = true;
 
     constructor(private http: Http, 
                 private router: Router,
-                private service: DataService) { 
-            this.service.getData().subscribe(
-                result => this.itemArray = result,
-                error => console.log(error.statusText)                
-            )};
+                private service: DataService) { };                    
+   
+    ngOnInit(){
+        this.service.getData().subscribe(
+            result => this.itemArray = result,
+            error => console.log(error.statusText)                
+    )};
 
     render(details: any) {
         this.router.navigate(['/movie', details.id]);
@@ -33,14 +34,25 @@ export class MainComponent {
     @Output()
     sort: EventEmitter<string> = new EventEmitter();
 
+    @Output()
+    search: EventEmitter<string> = new EventEmitter();
+
+    searchHandler(value: string){  
+        this.service.getData().subscribe(
+            result => {
+                this.itemArray = result.filter((item: any) => 
+                (item['title'].toLowerCase().indexOf(value.toLowerCase()) !== -1));
+            },
+            error => console.log(error.statusText)                
+        );
+    }
+
     sortHandler(value: any) {
         if (this.pressDownButton) {
             this.service.sortData(this.itemArray, value);
         } else {
-            this.service.getData().subscribe(
-                result => this.itemArray = result,
-                error => console.log(error.statusText)                
-        )};
-        this.pressDownButton = !this.pressDownButton;        
+            this.service.sortData(this.itemArray, 'id');            
+        }
+        this.pressDownButton = !this.pressDownButton;
     };
 }
