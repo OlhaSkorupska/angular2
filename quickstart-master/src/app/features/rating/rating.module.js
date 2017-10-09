@@ -8,17 +8,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var core_1 = require("@angular/core");
 var index_1 = require("./index");
 var platform_browser_1 = require("@angular/platform-browser");
-var StarsModule = (function () {
-    function StarsModule() {
+var RatingModule = (function () {
+    function RatingModule() {
     }
-    return StarsModule;
+    return RatingModule;
 }());
-StarsModule = __decorate([
+RatingModule = __decorate([
     core_1.NgModule({
         imports: [platform_browser_1.BrowserModule],
-        declarations: [index_1.StarsComponent],
-        exports: [index_1.StarsComponent]
+        declarations: [index_1.RatingComponent],
+        exports: [index_1.RatingComponent]
     })
-], StarsModule);
-exports.StarsModule = StarsModule;
-//# sourceMappingURL=stars.module.js.map
+], RatingModule);
+exports.RatingModule = RatingModule;
+//# sourceMappingURL=rating.module.js.map

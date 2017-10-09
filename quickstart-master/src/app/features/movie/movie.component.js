@@ -12,6 +12,7 @@ var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
 var router_1 = require("@angular/router");
 var main_service_1 = require("../main/main.service");
+var index_1 = require("../rating/index");
 var MovieComponent = (function () {
     function MovieComponent(http, route, router, service) {
         var _this = this;
@@ -27,6 +28,11 @@ var MovieComponent = (function () {
     MovieComponent.prototype.close = function () {
         this.router.navigate(['/main']);
     };
+    MovieComponent.prototype.ratingComponetClick = function (clickObj, item) {
+        var _this = this;
+        item.stars = clickObj.rating;
+        this.service.updateDataById(item, clickObj.itemId).subscribe(function (result) { return _this.currentItem = result; }, function (error) { return console.log(error.statusText); });
+    };
     return MovieComponent;
 }());
 MovieComponent = __decorate([
@@ -35,7 +41,7 @@ MovieComponent = __decorate([
         selector: "movie",
         templateUrl: "movie.component.html",
         styleUrls: ["movie.component.css"],
-        providers: [main_service_1.DataService]
+        providers: [main_service_1.DataService, index_1.RatingModule]
     }),
     __metadata("design:paramtypes", [http_1.Http,
         router_1.ActivatedRoute,

@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
-import { StarsComponent } from './index';
+import { RatingComponent } from './index';
 import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
     imports: [ BrowserModule ],
-    declarations: [ StarsComponent ],
-    exports:    [ StarsComponent ]
+    declarations: [ RatingComponent ],
+    exports:    [ RatingComponent ]
 })
-export class StarsModule { }
+export class RatingModule { }

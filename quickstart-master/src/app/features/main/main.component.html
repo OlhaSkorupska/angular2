@@ -2,7 +2,7 @@
     <sort-block (sort)="sortHandler($event)" (search)="searchHandler($event)"></sort-block>
     <ul class="wrapper">
         <li *ngFor="let item of itemArray">
-            <div>
+            <div class="item">
                 <div class="sidebar-item">
                     <likes [item]="item"></likes>                
                 </div>            
@@ -11,9 +11,7 @@
                         <img src="{{ item.posterUrl }}" alt="some text">                            
                 </div>
             </div>
-            <div class="stars">
-                <stars [stars]="item.stars"></stars>                  
-            </div>                                
+            <app-rating [rating]='item.stars' [itemId]='item.id' (ratingClick)='ratingComponetClick($event, item)'></app-rating>            
         </li>
     </ul>
 </div>

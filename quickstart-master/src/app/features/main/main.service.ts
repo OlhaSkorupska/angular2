@@ -3,27 +3,33 @@ import { Observable } from 'rxjs/Observable'
 import { Http } from "@angular/http";
 import { RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
+import { Movies } from "./movies";
 
 @Injectable() 
 export class DataService {
-    itemArray: any[];
+    itemArray: Movies;
 
     constructor(private http: Http) { }
     
-    getData(): Observable<any> {
+    getData(): Observable<Movies[]> {
         return this.http.get('app/items')
           .map(response => response.json().data);
     }
     
-    getDataById(id: number): Observable<any> {
+    getDataById(id: number): Observable<Movies> {
         return this.http.get(`app/items/${id}`)
         .map(response => response.json().data);        
     }     
     
-    updateData(item: any): Observable<any> {
+    updateData(item: Movies): Observable<Movies[]> {
         return this.http.put("app/items", item)
         .map(response => response.json().data);         
     }
+
+    updateDataById(item: Movies, id: number): Observable<Movies> {
+        return this.http.put(`app/items/${id}`, item)
+        .map(response => response.json().data);         
+    }    
 
     sortData(itemArray: any, value: string) {
         itemArray.sort((a: any, b: any) => {

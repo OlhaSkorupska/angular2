@@ -2,6 +2,7 @@ import { Component, Input } from "@angular/core";
 import { DataService } from '../main/main.service';
 import { Router } from '@angular/router';
 import { Http } from '@angular/http';
+import { Movies } from "../main/movies";
 
 @Component({
     moduleId: module.id,
@@ -13,14 +14,14 @@ import { Http } from '@angular/http';
 
 export class LikesComponent {
     @Input()
-    item: any;
-    itemArray: any[];
+    item: Movies;
+    itemArray: Movies[];
  
     constructor(private http: Http, 
                 private router: Router,
                 private service: DataService) { };
     
-    like(item: any, like: boolean) {
+    like(item: Movies, like: boolean) {
         like ? item["likes"] = item["likes"] + 1 : 
                item["likes"] = item["likes"] - 1;
         this.service.updateData(item).subscribe(

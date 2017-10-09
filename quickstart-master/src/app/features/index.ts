@@ -6,4 +6,4 @@ export  *  from './header/index';
 export  *  from './footer/index';
 export  *  from './movie/index';
 export  *  from './likes/index';
-export  *  from './stars/index';
+export  *  from './rating/index';

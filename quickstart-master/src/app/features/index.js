@@ -10,5 +10,5 @@ __export(require("./header/index"));
 __export(require("./footer/index"));
 __export(require("./movie/index"));
 __export(require("./likes/index"));
-__export(require("./stars/index"));
+__export(require("./rating/index"));
 //# sourceMappingURL=index.js.map

@@ -5,7 +5,6 @@ import { FeaturesModule } from './features/features.module';
 import { MovieComponent } from './features/index';
 import { MainComponent } from './features/main/main.component';
 import { RouterModule } from "@angular/router";
-
 import { AppComponent }  from './app.component';
 
 import { InMemoryWebApiModule } from "angular-in-memory-web-api";

@@ -23,7 +23,7 @@ FeaturesModule = __decorate([
             index_1.SortButtonModule,
             index_1.MovieModule,
             index_1.LikesModule,
-            index_1.StarsModule
+            index_1.RatingModule
         ],
         exports: [
             index_1.FooterModule,
@@ -34,7 +34,7 @@ FeaturesModule = __decorate([
             index_1.SortButtonModule,
             index_1.MovieModule,
             index_1.LikesModule,
-            index_1.StarsModule
+            index_1.RatingModule
         ]
     })
 ], FeaturesModule);

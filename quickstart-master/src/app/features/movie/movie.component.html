@@ -2,7 +2,7 @@
     <div class="sidebar">
         <div>{{ currentItem?.title }}</div>
         <div><span>Likes: </span>{{ currentItem?.likes }}</div> 
-        <stars [stars]="currentItem?.stars"></stars>
+        <app-rating [rating]='currentItem?.stars' [itemId]='currentItem?.id' (ratingClick)='ratingComponetClick($event, currentItem)'></app-rating>            
     </div>
     <div class="description">
         <button class="close" (click)="close()"></button>                

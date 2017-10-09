@@ -27,6 +27,10 @@ var DataService = (function () {
         return this.http.put("app/items", item)
             .map(function (response) { return response.json().data; });
     };
+    DataService.prototype.updateDataById = function (item, id) {
+        return this.http.put("app/items/" + id, item)
+            .map(function (response) { return response.json().data; });
+    };
     DataService.prototype.sortData = function (itemArray, value) {
         itemArray.sort(function (a, b) {
             if (a[value] < b[value]) {

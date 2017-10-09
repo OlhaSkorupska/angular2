@@ -8,7 +8,7 @@ import { FooterModule,
             SortButtonModule, 
             MovieModule,
             LikesModule,
-            StarsModule } from './index';
+            RatingModule } from './index';
        
 @NgModule({
   imports: [ 
@@ -20,7 +20,7 @@ import { FooterModule,
       SortButtonModule,
       MovieModule,
       LikesModule,
-      StarsModule
+      RatingModule
   ],
   exports: [ 
       FooterModule, 
@@ -31,7 +31,7 @@ import { FooterModule,
       SortButtonModule,
       MovieModule,
       LikesModule,
-      StarsModule
+      RatingModule
   ]
 })
 export class FeaturesModule { }

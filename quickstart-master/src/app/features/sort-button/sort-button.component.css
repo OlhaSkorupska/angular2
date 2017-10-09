@@ -1,3 +1,5 @@
 button {
     font: 24px Arial;
+    background-color: white;
+    border: 1px solid gray;
 }

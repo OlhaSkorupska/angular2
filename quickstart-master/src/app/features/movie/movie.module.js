@@ -8,7 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var core_1 = require("@angular/core");
 var index_1 = require("./index");
 var platform_browser_1 = require("@angular/platform-browser");
-var index_2 = require("../stars/index");
+var index_2 = require("../rating/index");
 var MovieModule = (function () {
     function MovieModule() {
     }
@@ -16,7 +16,7 @@ var MovieModule = (function () {
 }());
 MovieModule = __decorate([
     core_1.NgModule({
-        imports: [platform_browser_1.BrowserModule, index_2.StarsModule],
+        imports: [platform_browser_1.BrowserModule, index_2.RatingModule],
         declarations: [index_1.MovieComponent],
         exports: [index_1.MovieComponent]
     })
