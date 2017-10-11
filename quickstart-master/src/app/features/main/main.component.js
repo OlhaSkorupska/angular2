@@ -20,14 +20,16 @@ var MainComponent = (function () {
         this.pressDownButton = true;
         this.destroyedArray = [];
         this.countDestroyed = 0;
+        this.subscriptions = [];
         this.sort = new core_1.EventEmitter();
         this.search = new core_1.EventEmitter();
     }
     ;
     MainComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.destroyedArray[this.countDestroyed] = this.service.getData().subscribe(function (result) { return _this.itemArray = result; }, function (error) { return console.log(error.statusText); });
-        this.countDestroyed++;
+        var sub = this.service.getData()
+            .subscribe(function (result) { return _this.itemArray = result; }, function (error) { return _this.errorMessage = error; });
+        this.subscriptions.push(sub);
     };
     ;
     MainComponent.prototype.render = function (details) {
@@ -35,12 +37,12 @@ var MainComponent = (function () {
     };
     MainComponent.prototype.searchHandler = function (value) {
         var _this = this;
-        this.destroyedArray[this.countDestroyed] = this.service.getData().subscribe(function (result) {
+        var sub = this.service.getData().subscribe(function (result) {
             _this.itemArray = result.filter(function (item) {
-                return (item['title'].toLowerCase().indexOf(value.toLowerCase()) !== -1);
+                return (item.title.toLowerCase().indexOf(value.toLowerCase()) !== -1);
             });
-        }, function (error) { return console.log(error.statusText); });
-        this.countDestroyed++;
+        }, function (error) { return _this.errorMessage = error; });
+        this.subscriptions.push(sub);
     };
     MainComponent.prototype.sortHandler = function (value) {
         if (this.pressDownButton) {
@@ -55,13 +57,13 @@ var MainComponent = (function () {
     MainComponent.prototype.ratingComponetClick = function (clickObj, item) {
         var _this = this;
         item.stars = clickObj.rating;
-        this.destroyedArray[this.countDestroyed] = this.service.updateData(item).subscribe(function (result) { return _this.itemArray = result; }, function (error) { return console.log(error.statusText); });
-        this.countDestroyed++;
+        var sub = this.service.updateDataById(item, clickObj.idItem).subscribe(function (result) { return _this.item = result; }, function (error) { return _this.errorMessage = error; });
+        this.subscriptions.push(sub);
     };
     MainComponent.prototype.ngOnDestroy = function () {
-        for (var i = 0; i < this.destroyedArray.length; i++) {
-            this.destroyedArray[i].unsubscribe();
-        }
+        this.subscriptions.forEach(function (subscription) {
+            subscription.unsubscribe();
+        });
     };
     return MainComponent;
 }());

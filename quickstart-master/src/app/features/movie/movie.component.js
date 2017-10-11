@@ -20,6 +20,7 @@ var MovieComponent = (function () {
         this.route = route;
         this.router = router;
         this.service = service;
+        this.errorMessage = '';
         this.sub = this.route.params.subscribe(function (params) {
             var id = +params['id'];
             _this.service.getDataById(id).subscribe(function (result) { return _this.currentItem = result; }, function (error) { return console.log(error.statusText); });
@@ -31,7 +32,7 @@ var MovieComponent = (function () {
     MovieComponent.prototype.ratingComponetClick = function (clickObj, item) {
         var _this = this;
         item.stars = clickObj.rating;
-        this.service.updateDataById(item, clickObj.itemId).subscribe(function (result) { return _this.currentItem = result; }, function (error) { return console.log(error.statusText); });
+        this.service.updateDataById(item, clickObj.idItem).subscribe(function (result) { return _this.item = result; }, function (error) { return _this.errorMessage = error; });
     };
     return MovieComponent;
 }());

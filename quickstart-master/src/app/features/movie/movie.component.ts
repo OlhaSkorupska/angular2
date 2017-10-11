@@ -3,7 +3,7 @@ import { Http } from "@angular/http";
 import { Router, ActivatedRoute } from "@angular/router";
 import { DataService } from '../main/main.service';
 import { RatingModule } from '../rating/index';
-import { Movies } from "../main/movies";
+import { Movie } from "../main/movie";
 
 @Component({
     moduleId: module.id,
@@ -15,11 +15,11 @@ import { Movies } from "../main/movies";
 
 
 export class MovieComponent {
-    currentItem: Movies;
+    currentItem: Movie;
     private sub: any;
     private id: any;
-    itemArray: any[];    
-
+    item: Movie;  
+    errorMessage: string = '';
     constructor(private http: Http, 
                 private route: ActivatedRoute, 
                 private router: Router,
@@ -37,11 +37,11 @@ export class MovieComponent {
         this.router.navigate(['/main']);
     }
     
-    ratingComponetClick(clickObj: any, item: any): void {
-        item.stars = clickObj.rating; 
-        this.service.updateDataById(item, clickObj.itemId).subscribe(
-            result => this.currentItem = result,
-            error => console.log(error.statusText)
-        );            
-    }  
+    ratingComponetClick(clickObj: any, item: Movie) {
+        item.stars = clickObj.rating;    
+        this.service.updateDataById(item, clickObj.idItem).subscribe(
+            result => this.item = result,
+            error => this.errorMessage = error
+        );         
+    } 
 }

@@ -2,54 +2,57 @@ import { Component, OnInit, EventEmitter, Input, Output, OnDestroy} from '@angul
 import { Router } from '@angular/router';
 import { Http } from '@angular/http';
 import { DataService } from '../main/main.service';
-import { Movies } from "./movies";
+import { Movie } from "./movie";
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
     moduleId: module.id,    
     selector: "main",
     templateUrl: "main.component.html",
     styleUrls: ["main.component.css"],
-    providers: [ DataService ] 
+    providers: [ DataService ]
 })
 
 export class MainComponent implements OnInit {  
-    itemArray: Movies[];
-    item: Movies;  
+    itemArray: Movie[];
+    item: Movie;  
     pressDownButton: boolean = true;
     ratingClicked: number;
     destroyedArray: any = [];
     countDestroyed: number = 0;
+    errorMessage: string;    
+    private subscriptions: Array<Subscription> = [];
 
     constructor(private http: Http, 
                 private router: Router,
                 private service: DataService) { };                    
    
     ngOnInit(){
-        this.destroyedArray[this.countDestroyed] = this.service.getData().subscribe(
+        const sub = this.service.getData()
+        .subscribe(
             result => this.itemArray = result,
-            error => console.log(error.statusText));
-        this.countDestroyed++;
+            error => this.errorMessage = error            
+        );
+        this.subscriptions.push(sub);    
     };
 
     render(details: any) {
         this.router.navigate(['/movie', details.id]);
     } 
     
-    @Output()
-    sort: EventEmitter<string> = new EventEmitter();
+    @Output() sort: EventEmitter<string> = new EventEmitter();
 
-    @Output()
-    search: EventEmitter<string> = new EventEmitter();
+    @Output() search: EventEmitter<string> = new EventEmitter();
 
     searchHandler(value: string){  
-        this.destroyedArray[this.countDestroyed] = this.service.getData().subscribe(
+        const sub = this.service.getData().subscribe(
             result => {
                 this.itemArray = result.filter((item: any) => 
-                (item['title'].toLowerCase().indexOf(value.toLowerCase()) !== -1));
+                (item.title.toLowerCase().indexOf(value.toLowerCase()) !== -1));
             },
-            error => console.log(error.statusText)                
+            error => this.errorMessage = error              
         );
-        this.countDestroyed++;        
+        this.subscriptions.push(sub);         
     }
 
     sortHandler(value: any) {
@@ -61,19 +64,19 @@ export class MainComponent implements OnInit {
         this.pressDownButton = !this.pressDownButton;
     };
 
-    ratingComponetClick(clickObj: any, item: Movies): void {
+    ratingComponetClick(clickObj: any, item: Movie) {
         item.stars = clickObj.rating;    
-        this.destroyedArray[this.countDestroyed] = this.service.updateData(item).subscribe(
-            result => this.itemArray = result,
-            error => console.log(error.statusText)
+        const sub = this.service.updateDataById(item, clickObj.idItem).subscribe(
+            result => this.item = result,
+            error => this.errorMessage = error
         );            
-        this.countDestroyed++;
+        this.subscriptions.push(sub); 
     }
 
     ngOnDestroy() {
-        for (let i=0; i < this.destroyedArray.length; i++) {
-            this.destroyedArray[i].unsubscribe();
-        }
+        this.subscriptions.forEach((subscription: Subscription) => {
+            subscription.unsubscribe();
+        });
     }
       
 }

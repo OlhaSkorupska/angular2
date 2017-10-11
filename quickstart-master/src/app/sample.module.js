@@ -6,24 +6,22 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require("@angular/core");
-var FactorialPipe = (function () {
-    function FactorialPipe() {
+var common_1 = require("@angular/common");
+var forms_1 = require("@angular/forms");
+var http_1 = require("@angular/http");
+var InMemoryServerModule = (function () {
+    function InMemoryServerModule() {
     }
-    FactorialPipe.prototype.transform = function (value, args) {
-        if (value <= 0)
-            return 0;
-        var result = 1;
-        for (var i = 1; i <= value; i++) {
-            result = result * i;
-        }
-        return result;
-    };
-    return FactorialPipe;
+    return InMemoryServerModule;
 }());
-FactorialPipe = __decorate([
-    core_1.Pipe({
-        name: 'factorial'
+InMemoryServerModule = __decorate([
+    core_1.NgModule({
+        imports: [
+            common_1.CommonModule,
+            http_1.HttpModule,
+            forms_1.FormsModule
+        ]
     })
-], FactorialPipe);
-exports.FactorialPipe = FactorialPipe;
-//# sourceMappingURL=filter.pipe.js.map
+], InMemoryServerModule);
+exports.InMemoryServerModule = InMemoryServerModule;
+//# sourceMappingURL=sample.module.js.map

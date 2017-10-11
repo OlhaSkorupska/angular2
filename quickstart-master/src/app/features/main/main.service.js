@@ -9,27 +9,47 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var Observable_1 = require("rxjs/Observable");
 var http_1 = require("@angular/http");
 require("rxjs/add/operator/map");
+require("rxjs/add/operator/catch");
+var http_2 = require("@angular/http");
 var DataService = (function () {
     function DataService(http) {
         this.http = http;
     }
     DataService.prototype.getData = function () {
         return this.http.get('app/items')
-            .map(function (response) { return response.json().data; });
+            .map(function (response) { return response.json().data; })
+            .catch(this.handleError);
     };
     DataService.prototype.getDataById = function (id) {
         return this.http.get("app/items/" + id)
-            .map(function (response) { return response.json().data; });
+            .map(function (response) { return response.json().data; })
+            .catch(this.handleError);
     };
     DataService.prototype.updateData = function (item) {
-        return this.http.put("app/items", item)
-            .map(function (response) { return response.json().data; });
+        return this.http.post('app/items', item)
+            .map(function (response) { return response.json(); })
+            .catch(this.handleError);
     };
     DataService.prototype.updateDataById = function (item, id) {
-        return this.http.put("app/items/" + id, item)
-            .map(function (response) { return response.json().data; });
+        return this.http.post('app/items/$(item.id)', item)
+            .map(function (response) { return response.json(); })
+            .catch(this.handleError);
+    };
+    DataService.prototype.handleError = function (error) {
+        var errMsg;
+        if (error instanceof http_2.Response) {
+            var body = error.json() || '';
+            var err = error.json().error || JSON.stringify(body);
+            errMsg = error.status + " - " + (error.statusText || '') + " " + err;
+        }
+        else {
+            errMsg = error.message ? error.message : error.toString();
+        }
+        console.error(errMsg);
+        return Observable_1.Observable.throw(errMsg);
     };
     DataService.prototype.sortData = function (itemArray, value) {
         itemArray.sort(function (a, b) {

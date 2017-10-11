@@ -14,8 +14,8 @@ var main_component_1 = require("./features/main/main.component");
 var router_1 = require("@angular/router");
 var app_component_1 = require("./app.component");
 var angular_in_memory_web_api_1 = require("angular-in-memory-web-api");
-var inMemoryServer_1 = require("./sample01_inMemServer/inMemoryServer");
-var sample_module_1 = require("./sample01_inMemServer/sample.module");
+var inMemoryServer_1 = require("./inMemoryServer");
+var sample_module_1 = require("./sample.module");
 var AppModule = (function () {
     function AppModule() {
     }

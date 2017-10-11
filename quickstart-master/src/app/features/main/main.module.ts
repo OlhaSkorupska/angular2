@@ -6,7 +6,7 @@ import { SortButtonModule } from '../sort-button/index';
 import { SortBlockModule } from '../sort-block/index';
 import { MovieModule } from '../movie/index';
 import { RatingModule } from '../rating/index';
-import { Movies } from './index';
+import { Movie } from './index';
 
 @NgModule({
   imports: [ SortBlockModule, MovieModule, 

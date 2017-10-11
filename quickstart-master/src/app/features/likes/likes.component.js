@@ -21,9 +21,9 @@ var LikesComponent = (function () {
     ;
     LikesComponent.prototype.like = function (item, like) {
         var _this = this;
-        like ? item["likes"] = item["likes"] + 1 :
-            item["likes"] = item["likes"] - 1;
-        this.service.updateData(item).subscribe(function (result) { return _this.itemArray = result; }, function (error) { return console.log(error.statusText); });
+        like ? item.likes = item.likes + 1 :
+            item.likes = item.likes - 1;
+        this.service.updateData(item).subscribe(function (result) { return _this.itemArray = result; }, function (error) { return _this.errorMessage = error; });
     };
     return LikesComponent;
 }());

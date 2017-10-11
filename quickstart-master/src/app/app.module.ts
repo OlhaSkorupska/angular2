@@ -8,8 +8,8 @@ import { RouterModule } from "@angular/router";
 import { AppComponent }  from './app.component';
 
 import { InMemoryWebApiModule } from "angular-in-memory-web-api";
-import { ItemData } from "./sample01_inMemServer/inMemoryServer";
-import { InMemoryServerModule } from "./sample01_inMemServer/sample.module";
+import { ItemData } from "./inMemoryServer";
+import { InMemoryServerModule } from "./sample.module";
 
 @NgModule({
   imports: [ BrowserModule, HttpModule,
