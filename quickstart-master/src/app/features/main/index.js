@@ -4,5 +4,5 @@ function __export(m) {
 }
 __export(require("./main.component"));
 __export(require("./main.module"));
-__export(require("./main.service"));
+__export(require("./main.routes"));
 //# sourceMappingURL=index.js.map

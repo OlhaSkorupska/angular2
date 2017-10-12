@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { MovieComponent } from './index';
 import { BrowserModule } from '@angular/platform-browser';
-import { RatingModule } from '../rating/index';
+import { RatingModule} from '../../shared/index';
 
 @NgModule({
     imports: [ BrowserModule, RatingModule ],

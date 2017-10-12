@@ -4,14 +4,14 @@
         <li *ngFor="let item of itemArray">
             <div class="item">
                 <div class="sidebar-item">
-                    <likes [item]="item"></likes>                
+                    <likes [item]="item"></likes>
                 </div>            
                 <div class="description-item" (click)="render(item)">
                     <div>{{ item.title }}</div>
                         <img src="{{ item.posterUrl }}" alt="some text">                            
                 </div>
             </div>
-            <app-rating [rating]='item.stars' [itemId]='item.id' (ratingClick)='ratingComponetClick($event, item)'></app-rating>            
+            <app-rating [rating]='item.stars' [itemId]='item.id' (ratingClick)='ratingComponetClick($event, item)'></app-rating>
         </li>
     </ul>
 </div>

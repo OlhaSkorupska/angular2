@@ -11,15 +11,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var http_1 = require("@angular/http");
-var main_service_1 = require("../main/main.service");
+var data_service_1 = require("../../core/service/data.service");
 var MainComponent = (function () {
     function MainComponent(http, router, service) {
         this.http = http;
         this.router = router;
         this.service = service;
         this.pressDownButton = true;
-        this.destroyedArray = [];
-        this.countDestroyed = 0;
         this.subscriptions = [];
         this.sort = new core_1.EventEmitter();
         this.search = new core_1.EventEmitter();
@@ -57,7 +55,7 @@ var MainComponent = (function () {
     MainComponent.prototype.ratingComponetClick = function (clickObj, item) {
         var _this = this;
         item.stars = clickObj.rating;
-        var sub = this.service.updateDataById(item, clickObj.idItem).subscribe(function (result) { return _this.item = result; }, function (error) { return _this.errorMessage = error; });
+        var sub = this.service.updateDataById(item, clickObj.itemId).subscribe(function (result) { return _this.item = result; }, function (error) { return _this.errorMessage = error; });
         this.subscriptions.push(sub);
     };
     MainComponent.prototype.ngOnDestroy = function () {
@@ -81,11 +79,11 @@ MainComponent = __decorate([
         selector: "main",
         templateUrl: "main.component.html",
         styleUrls: ["main.component.css"],
-        providers: [main_service_1.DataService]
+        providers: [data_service_1.DataService]
     }),
     __metadata("design:paramtypes", [http_1.Http,
         router_1.Router,
-        main_service_1.DataService])
+        data_service_1.DataService])
 ], MainComponent);
 exports.MainComponent = MainComponent;
 //# sourceMappingURL=main.component.js.map

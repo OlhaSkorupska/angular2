@@ -1,8 +1,8 @@
 import { Component, Input } from "@angular/core";
-import { DataService } from '../main/main.service';
 import { Router } from '@angular/router';
 import { Http } from '@angular/http';
-import { Movie } from "../main/movie";
+import { DataService } from '../../core/service/data.service';
+import { Movie } from "../../core/index";
 
 @Component({
     moduleId: module.id,

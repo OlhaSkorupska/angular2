@@ -8,11 +8,12 @@ import { RouterModule } from "@angular/router";
 import { AppComponent }  from './app.component';
 
 import { InMemoryWebApiModule } from "angular-in-memory-web-api";
-import { ItemData } from "./inMemoryServer";
-import { InMemoryServerModule } from "./sample.module";
+import { ItemData } from "./inMemoryServer/inMemoryServer";
+import { InMemoryServerModule } from "./inMemoryServer/sample.module";
+import { HeaderModule, FooterModule } from './shared/index';
 
 @NgModule({
-  imports: [ BrowserModule, HttpModule,
+  imports: [ BrowserModule, HttpModule, HeaderModule, FooterModule,
     InMemoryWebApiModule.forRoot(ItemData), InMemoryServerModule, FeaturesModule,
     RouterModule.forRoot([
       { path: "movie/:id", component: MovieComponent },

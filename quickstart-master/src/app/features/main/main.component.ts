@@ -1,8 +1,8 @@
 import { Component, OnInit, EventEmitter, Input, Output, OnDestroy} from '@angular/core';
 import { Router } from '@angular/router';
 import { Http } from '@angular/http';
-import { DataService } from '../main/main.service';
-import { Movie } from "./movie";
+import { DataService } from '../../core/service/data.service';
+import { Movie, Rating } from "../../core/index";
 import { Subscription } from 'rxjs/Subscription';
 
 @Component({
@@ -17,9 +17,6 @@ export class MainComponent implements OnInit {
     itemArray: Movie[];
     item: Movie;  
     pressDownButton: boolean = true;
-    ratingClicked: number;
-    destroyedArray: any = [];
-    countDestroyed: number = 0;
     errorMessage: string;    
     private subscriptions: Array<Subscription> = [];
 
@@ -36,7 +33,7 @@ export class MainComponent implements OnInit {
         this.subscriptions.push(sub);    
     };
 
-    render(details: any) {
+    render(details: Movie) {
         this.router.navigate(['/movie', details.id]);
     } 
     
@@ -47,7 +44,7 @@ export class MainComponent implements OnInit {
     searchHandler(value: string){  
         const sub = this.service.getData().subscribe(
             result => {
-                this.itemArray = result.filter((item: any) => 
+                this.itemArray = result.filter((item: Movie) => 
                 (item.title.toLowerCase().indexOf(value.toLowerCase()) !== -1));
             },
             error => this.errorMessage = error              
@@ -55,7 +52,7 @@ export class MainComponent implements OnInit {
         this.subscriptions.push(sub);         
     }
 
-    sortHandler(value: any) {
+    sortHandler(value: string) {
         if (this.pressDownButton) {
             this.service.sortData(this.itemArray, value);
         } else {
@@ -64,9 +61,9 @@ export class MainComponent implements OnInit {
         this.pressDownButton = !this.pressDownButton;
     };
 
-    ratingComponetClick(clickObj: any, item: Movie) {
+    ratingComponetClick(clickObj: Rating, item: Movie) {
         item.stars = clickObj.rating;    
-        const sub = this.service.updateDataById(item, clickObj.idItem).subscribe(
+        const sub = this.service.updateDataById(item, clickObj.itemId).subscribe(
             result => this.item = result,
             error => this.errorMessage = error
         );            

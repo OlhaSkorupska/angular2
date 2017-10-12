@@ -6,24 +6,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require("@angular/core");
-var index_1 = require("./index");
-//import { SharedModule } from '../shared/shared.module';
-var FeaturesModule = (function () {
-    function FeaturesModule() {
+var data_service_1 = require("./service/data.service");
+var CoreModule = (function () {
+    function CoreModule() {
     }
-    return FeaturesModule;
+    return CoreModule;
 }());
-FeaturesModule = __decorate([
+CoreModule = __decorate([
     core_1.NgModule({
-        imports: [
-            index_1.MainModule,
-            index_1.MovieModule
-        ],
-        exports: [
-            index_1.MainModule,
-            index_1.MovieModule
-        ]
+        providers: [data_service_1.DataService]
     })
-], FeaturesModule);
-exports.FeaturesModule = FeaturesModule;
-//# sourceMappingURL=features.module.js.map
+], CoreModule);
+exports.CoreModule = CoreModule;
+//# sourceMappingURL=core.module.js.map

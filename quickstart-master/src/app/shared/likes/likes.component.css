@@ -1,0 +1,13 @@
+button {
+    width: 25px;
+    height: 25px;
+    border: 0;
+    outline: none;    
+}
+.like {
+    background: url(assets/images/like.png) 3px no-repeat;
+}
+
+.dislike {
+    background: url(assets/images/dislike.png) 3px no-repeat;
+}

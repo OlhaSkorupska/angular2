@@ -2,6 +2,18 @@
     font: 24px Arial;   
 }
 
+.title-sort-block {
+    margin-bottom: 10px;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+* {
+    font: 24px Arial;   
+}
+
 .form-wrapper {
     width: 300px;
     margin-top: 10px;
@@ -9,12 +21,10 @@
 }
  
 .form-wrapper input {
-    width: 250px;
-    height: 20px;
+    width: 246px;
+    height: 16px;
     padding: 10px 5px;
-    float: right;    
-    border: 0;
-    background: #eee;
+    float: right;
 }
  
 .form-wrapper input:focus {
@@ -34,7 +44,5 @@
     width: 40px;
     color: #fff;
     text-transform: uppercase;
-    background: url(app/features/search-button/images/search.png) #8a8787 12px no-repeat;        
-}   
-   
-   
+    background: url(assets/images/search.png) #8a8787 12px no-repeat;        
+}

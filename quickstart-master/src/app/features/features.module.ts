@@ -1,37 +1,16 @@
 import { NgModule } from '@angular/core';
 
-import { FooterModule, 
-            HeaderModule, 
-            MainModule, 
-            SortBlockModule, 
-            SearchButtonModule, 
-            SortButtonModule, 
-            MovieModule,
-            LikesModule,
-            RatingModule } from './index';
+import { MainModule, MovieModule  } from './index';
+//import { SharedModule } from '../shared/shared.module';
        
 @NgModule({
   imports: [ 
-      FooterModule, 
-      HeaderModule, 
       MainModule,
-      SortBlockModule,
-      SearchButtonModule,
-      SortButtonModule,
-      MovieModule,
-      LikesModule,
-      RatingModule
+      MovieModule
   ],
   exports: [ 
-      FooterModule, 
-      HeaderModule, 
       MainModule,
-      SortBlockModule,
-      SearchButtonModule,
-      SortButtonModule,
-      MovieModule,
-      LikesModule,
-      RatingModule
+      MovieModule
   ]
 })
 export class FeaturesModule { }

@@ -9,9 +9,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var main_service_1 = require("../main/main.service");
 var router_1 = require("@angular/router");
 var http_1 = require("@angular/http");
+var data_service_1 = require("../../core/service/data.service");
 var LikesComponent = (function () {
     function LikesComponent(http, router, service) {
         this.http = http;
@@ -37,11 +37,11 @@ LikesComponent = __decorate([
         selector: 'likes',
         templateUrl: 'likes.component.html',
         styleUrls: ['likes.component.css'],
-        providers: [main_service_1.DataService]
+        providers: [data_service_1.DataService]
     }),
     __metadata("design:paramtypes", [http_1.Http,
         router_1.Router,
-        main_service_1.DataService])
+        data_service_1.DataService])
 ], LikesComponent);
 exports.LikesComponent = LikesComponent;
 //# sourceMappingURL=likes.component.js.map

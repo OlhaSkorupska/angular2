@@ -13,43 +13,33 @@ var Observable_1 = require("rxjs/Observable");
 var http_1 = require("@angular/http");
 require("rxjs/add/operator/map");
 require("rxjs/add/operator/catch");
-var http_2 = require("@angular/http");
 var DataService = (function () {
     function DataService(http) {
         this.http = http;
+        this.Url = 'app/items';
     }
     DataService.prototype.getData = function () {
-        return this.http.get('app/items')
+        return this.http.get(this.Url)
             .map(function (response) { return response.json().data; })
             .catch(this.handleError);
     };
     DataService.prototype.getDataById = function (id) {
-        return this.http.get("app/items/" + id)
+        return this.http.get(this.Url + "/" + id)
             .map(function (response) { return response.json().data; })
             .catch(this.handleError);
     };
     DataService.prototype.updateData = function (item) {
-        return this.http.post('app/items', item)
+        return this.http.post(this.Url, item)
             .map(function (response) { return response.json(); })
             .catch(this.handleError);
     };
     DataService.prototype.updateDataById = function (item, id) {
-        return this.http.post('app/items/$(item.id)', item)
+        return this.http.post(this.Url + "/" + item.id, item)
             .map(function (response) { return response.json(); })
             .catch(this.handleError);
     };
     DataService.prototype.handleError = function (error) {
-        var errMsg;
-        if (error instanceof http_2.Response) {
-            var body = error.json() || '';
-            var err = error.json().error || JSON.stringify(body);
-            errMsg = error.status + " - " + (error.statusText || '') + " " + err;
-        }
-        else {
-            errMsg = error.message ? error.message : error.toString();
-        }
-        console.error(errMsg);
-        return Observable_1.Observable.throw(errMsg);
+        return Observable_1.Observable.throw(error);
     };
     DataService.prototype.sortData = function (itemArray, value) {
         itemArray.sort(function (a, b) {
@@ -72,4 +62,4 @@ DataService = __decorate([
     __metadata("design:paramtypes", [http_1.Http])
 ], DataService);
 exports.DataService = DataService;
-//# sourceMappingURL=main.service.js.map
+//# sourceMappingURL=data.service.js.map

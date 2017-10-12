@@ -14,8 +14,9 @@ var main_component_1 = require("./features/main/main.component");
 var router_1 = require("@angular/router");
 var app_component_1 = require("./app.component");
 var angular_in_memory_web_api_1 = require("angular-in-memory-web-api");
-var inMemoryServer_1 = require("./inMemoryServer");
-var sample_module_1 = require("./sample.module");
+var inMemoryServer_1 = require("./inMemoryServer/inMemoryServer");
+var sample_module_1 = require("./inMemoryServer/sample.module");
+var index_2 = require("./shared/index");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -23,7 +24,7 @@ var AppModule = (function () {
 }());
 AppModule = __decorate([
     core_1.NgModule({
-        imports: [platform_browser_1.BrowserModule, http_1.HttpModule,
+        imports: [platform_browser_1.BrowserModule, http_1.HttpModule, index_2.HeaderModule, index_2.FooterModule,
             angular_in_memory_web_api_1.InMemoryWebApiModule.forRoot(inMemoryServer_1.ItemData), sample_module_1.InMemoryServerModule, features_module_1.FeaturesModule,
             router_1.RouterModule.forRoot([
                 { path: "movie/:id", component: index_1.MovieComponent },

@@ -4,4 +4,5 @@ function __export(m) {
 }
 __export(require("./movie.component"));
 __export(require("./movie.module"));
+__export(require("./movie.routes"));
 //# sourceMappingURL=index.js.map

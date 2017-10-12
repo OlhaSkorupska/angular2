@@ -4,54 +4,46 @@ import { Http } from "@angular/http";
 import { RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch'
-import { Movie } from "./movie";
+import { Movie } from "./movie.model";
 import { Response } from '@angular/http';
 
 @Injectable() 
 export class DataService {
     itemArray: Movie;
+    private Url: string = 'app/items';    
 
     constructor(private http: Http) { }
     
     public getData(): Observable<Movie[]> {
-        return this.http.get('app/items')
+        return this.http.get(this.Url)
             .map(response => response.json().data)
             .catch(this.handleError);
     }
 
     public getDataById(id: number): Observable<Movie> {
-        return this.http.get(`app/items/${id}`)
+        return this.http.get(`${this.Url}/${id}`)
             .map(response => response.json().data)
             .catch(this.handleError);                
     }     
     
     public updateData(item: Movie): Observable<Movie[]> {
-        return this.http.post('app/items', item)
+        return this.http.post(this.Url, item)
             .map(response => response.json())
             .catch(this.handleError);        
     }
 
     public updateDataById(item: Movie, id: number): Observable<Movie> {
-        return this.http.post('app/items/$(item.id)', item)
+        return this.http.post(`${this.Url}/${item.id}`, item)
             .map(response => response.json())
             .catch(this.handleError);
     }    
 
-    private handleError (error: Response | any) {
-        let errMsg: string;
-        if (error instanceof Response) {
-          const body = error.json() || '';
-          const err = error.json().error || JSON.stringify(body);
-          errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
-        } else {
-          errMsg = error.message ? error.message : error.toString();
-        }
-        console.error(errMsg);
-        return Observable.throw(errMsg);
+    private handleError (error: Response) {
+        return Observable.throw(error);
       }
 
-    sortData(itemArray: any, value: string) {
-        itemArray.sort((a: any, b: any) => {
+    sortData(itemArray: Movie[], value: string) {
+        itemArray.sort((a: Movie, b: Movie) => {
             if (a[value] < b[value]) {
                 return -1;
             } else if (a[value] > b[value]) {
@@ -61,5 +53,5 @@ export class DataService {
             }
         });
         return itemArray;
-    }     
+    } 
 }

@@ -11,8 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
 var router_1 = require("@angular/router");
-var main_service_1 = require("../main/main.service");
-var index_1 = require("../rating/index");
+var data_service_1 = require("../../core/service/data.service");
 var MovieComponent = (function () {
     function MovieComponent(http, route, router, service) {
         var _this = this;
@@ -20,11 +19,13 @@ var MovieComponent = (function () {
         this.route = route;
         this.router = router;
         this.service = service;
+        this.subscriptions = [];
         this.errorMessage = '';
-        this.sub = this.route.params.subscribe(function (params) {
+        var sub = this.route.params.subscribe(function (params) {
             var id = +params['id'];
             _this.service.getDataById(id).subscribe(function (result) { return _this.currentItem = result; }, function (error) { return console.log(error.statusText); });
         });
+        this.subscriptions.push(sub);
     }
     MovieComponent.prototype.close = function () {
         this.router.navigate(['/main']);
@@ -32,7 +33,8 @@ var MovieComponent = (function () {
     MovieComponent.prototype.ratingComponetClick = function (clickObj, item) {
         var _this = this;
         item.stars = clickObj.rating;
-        this.service.updateDataById(item, clickObj.idItem).subscribe(function (result) { return _this.item = result; }, function (error) { return _this.errorMessage = error; });
+        var sub = this.service.updateDataById(item, clickObj.itemId).subscribe(function (result) { return _this.item = result; }, function (error) { return _this.errorMessage = error; });
+        this.subscriptions.push(sub);
     };
     return MovieComponent;
 }());
@@ -42,12 +44,12 @@ MovieComponent = __decorate([
         selector: "movie",
         templateUrl: "movie.component.html",
         styleUrls: ["movie.component.css"],
-        providers: [main_service_1.DataService, index_1.RatingModule]
+        providers: [data_service_1.DataService]
     }),
     __metadata("design:paramtypes", [http_1.Http,
         router_1.ActivatedRoute,
         router_1.Router,
-        main_service_1.DataService])
+        data_service_1.DataService])
 ], MovieComponent);
 exports.MovieComponent = MovieComponent;
 //# sourceMappingURL=movie.component.js.map

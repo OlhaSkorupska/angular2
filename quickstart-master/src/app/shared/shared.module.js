@@ -7,23 +7,32 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var core_1 = require("@angular/core");
 var index_1 = require("./index");
-//import { SharedModule } from '../shared/shared.module';
-var FeaturesModule = (function () {
-    function FeaturesModule() {
+var SharedModule = (function () {
+    function SharedModule() {
     }
-    return FeaturesModule;
+    return SharedModule;
 }());
-FeaturesModule = __decorate([
+SharedModule = __decorate([
     core_1.NgModule({
         imports: [
-            index_1.MainModule,
-            index_1.MovieModule
+            index_1.FooterModule,
+            index_1.HeaderModule,
+            index_1.SortBlockModule,
+            index_1.SearchButtonModule,
+            index_1.SortButtonModule,
+            index_1.LikesModule,
+            index_1.RatingModule
         ],
         exports: [
-            index_1.MainModule,
-            index_1.MovieModule
+            index_1.FooterModule,
+            index_1.HeaderModule,
+            index_1.SortBlockModule,
+            index_1.SearchButtonModule,
+            index_1.SortButtonModule,
+            index_1.LikesModule,
+            index_1.RatingModule
         ]
     })
-], FeaturesModule);
-exports.FeaturesModule = FeaturesModule;
-//# sourceMappingURL=features.module.js.map
+], SharedModule);
+exports.SharedModule = SharedModule;
+//# sourceMappingURL=shared.module.js.map

@@ -14,7 +14,7 @@ var RatingComponent = (function () {
         this.ratingClick = new core_1.EventEmitter();
     }
     RatingComponent.prototype.ngOnInit = function () {
-        this.inpustName = this.itemId + '_rating';
+        this.inputsName = this.itemId + '_rating';
     };
     RatingComponent.prototype.onClick = function (rating) {
         this.rating = rating;

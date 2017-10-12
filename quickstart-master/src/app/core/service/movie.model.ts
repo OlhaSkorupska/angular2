@@ -1,4 +1,4 @@
-export interface Movies {
+export interface Movie {
     id: number,
     title: string,
     posterUrl: string,
@@ -8,4 +8,9 @@ export interface Movies {
     actors: string[],
     director: string,
     description: string
+}
+
+export interface Rating {
+    itemId: number,
+    rating: number
 }

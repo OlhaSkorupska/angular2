@@ -2,7 +2,6 @@
     <div class="title-sort-block"> {{ name }} </div>
     <sort-button [name] = "'by likes'" (click) = "sortByLikes()"></sort-button>
     <sort-button [name] = "'by raiting'" (click) = "sortByRaiting()"></sort-button>
-    <!--<search-button (click)="click()"></search-button>-->
     <div class="form-wrapper">
         <input placeholder="Search by name" type="text" #textbox (keyup.enter)="onKeyUp(textbox.value)" />
         <button (click)="onKeyUp(textbox.value)"></button>

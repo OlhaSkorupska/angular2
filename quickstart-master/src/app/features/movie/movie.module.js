@@ -8,7 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var core_1 = require("@angular/core");
 var index_1 = require("./index");
 var platform_browser_1 = require("@angular/platform-browser");
-var index_2 = require("../rating/index");
+var index_2 = require("../../shared/index");
 var MovieModule = (function () {
     function MovieModule() {
     }
